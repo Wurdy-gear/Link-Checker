@@ -1,0 +1,39 @@
+﻿<Window x:Class="Practic.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practic"
+        mc:Ignorable="d"
+        Title="Link checker" Height="91.333" Width="450">
+
+    <Grid VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto" MinWidth="11" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Path:" HorizontalAlignment="Right" VerticalAlignment="Center" Height="26" Width="36" />
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0*" />
+                <ColumnDefinition Width="359*"/>
+                <ColumnDefinition Width="36*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="0" Grid.Column="0" Name="txtPath" Grid.ColumnSpan="2" />
+            <Button Grid.Row="0" Grid.Column="2" Content="..." Click="btnBrowse_Click" />
+        </Grid>
+        <Button Grid.Row="3" Grid.Column="1" Content="Check" Click="btnSearch_Click" />
+
+    </Grid>
+</Window>
