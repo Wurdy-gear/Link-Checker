@@ -11,12 +11,14 @@ namespace WordLinkOrder
 {
     public class WordLinkOrder
     {
+
         private Application word = null; // Word application
         private string path;  // The path to the Word document file
         public bool Verbose { get; set; } = false;
 
         public WordLinkOrder(string path)
         {
+            System.Windows.Forms.MessageBox.Show("WordLinkOrder получил строку");
             // Check if file exists
             if (!File.Exists(path))
                 throw new FileNotFoundException("The specified file does not exist.", path);
@@ -26,6 +28,7 @@ namespace WordLinkOrder
 
         public int[] Run()
         {
+            System.Windows.Forms.MessageBox.Show("WordLinkOrder запущен");
             // Initialise word if not already present
             if (this.word == null)
             {

@@ -10,23 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-/*namespace Practic
+namespace Practic
 {
     /// <summary>
-    /// Логика взаимодействия для ResultPage.xaml
+    /// Логика взаимодействия для ResultWindow.xaml
     /// </summary>
-    public partial class ResultPage : Page
+    public partial class ResultWindow : Window
     {
-
-        private IEnumerable<SearchResult> searchResults;
-        public ResultPage(IEnumerable<SearchResult> searchResults)
+        public ResultWindow()
         {
             InitializeComponent();
-
-            this.searchResults = searchResults;
         }
     }
-}*/
+}

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WordLinkOrderChecker
+namespace Practic.Search
 {
     class Program
     {
@@ -32,7 +32,7 @@ namespace WordLinkOrderChecker
 
             // Execute reference search
             int[] references = wordLinkOrder.Run();
-
+------------------------------------------------------------------------------
             // Check reference order
             int firstNumber = 0;
             int lastNumber = 0;

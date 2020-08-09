@@ -16,6 +16,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WordLinkOrder;
+using WordLinkOrderChecker;
 
 namespace Practic
 {
@@ -34,6 +36,7 @@ namespace Practic
             //чтобы сохраняло предудущий выбор в регистре
             registryKey = Registry.CurrentUser.OpenSubKey("Software", true).CreateSubKey("WordSearch", true);
             this.txtPath.Text = registryKey.GetValue("Path", "") as string;
+            System.Windows.Forms.MessageBox.Show("MainWindow запущен");
         }
 
         void btnBrowse_Click(object sender, RoutedEventArgs e)
@@ -61,36 +64,11 @@ namespace Practic
             registryKey.SetValue("Path", path);//Register rewriting
 
             //passing to path function
+            Check check = new Check();
+            this.Hide(); // Hide current MainWindow
+            check.Checker(path);//После проверки результат возвращается сюда и здесь программа продолжается
 
-            WordLinkOrder.WordLinkOrder wordLinkOrder = null;
-            try
-            {
-                wordLinkOrder = new WordLinkOrder.WordLinkOrder(path);
-            }
-            catch (FileNotFoundException ex)
-            {
-                Console.Error.WriteLine($"The file {ex.FileName} could not be found.");
-                return;
-            }
-            //Running a check
-            int[] references = wordLinkOrder.Run();
-
-            // Check reference order
-            int firstNumber = 0;
-            int lastNumber = 0;
-            bool hasBadReferences = false;
-            foreach (int reference in references)
-            {
-                if (reference != firstNumber + 1)
-                {
-                    //There should be some other code here
-                    //Console.WriteLine($"Bad reference order found: Got [{reference}] but expected [{lastNumber + 1}]!");
-                    hasBadReferences = true;
-                }
-
-                firstNumber = reference;
-                lastNumber = lastNumber + 1;
-            }
+            System.Windows.Forms.MessageBox.Show("Программа обработала результаты поиска");
         }
     }
 }
